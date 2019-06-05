@@ -1,0 +1,76 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-md-12">
+    <h2>Distribution Server</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/dashboard/admindashboard">Dashboard</a>
+      </li>
+      <li>
+        <a routerLink="/admindashboard/centers">Distribution Server</a>
+      </li>
+      <!--<li class="active">-->
+      <!--<strong>Downloaded Exams</strong>-->
+      <!--</li>-->
+
+
+      <div class="ui-helper-clearfix">
+
+        <button  class="btn btn-info btn-circle btn-lg" type="button" style="float: right" (click)="addServerAddress()">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+
+
+    </ol>
+  </div>
+</div>
+
+
+
+
+
+<p-dataTable #dt  [tableStyle]="{'table-layout':'auto'}"  [value]=""   >
+
+
+  <p-column field="subjectName" header="Server Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+  <p-column field="formName" header="IP Address" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+  <p-column field="totalQuestions" header="Download Status" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+
+
+  <p-column field="status"  header="Action" [sortable]="true" >
+
+
+    <ng-template let-index = "rowIndex"  let-data ="rowData" pTemplate="body">
+
+      <button type="button" class="btn btn-primary btn-xs" (click)="toggleSwitch()">Toggle</button> &nbsp; &nbsp;&nbsp;
+      <button type="button" class="btn btn-success btn-xs" (click)="deleteDS()">Delete</button>&nbsp; &nbsp;&nbsp;
+      <!--<button type="button" class="btn btn-info btn-xs"  (click)="showKeysCard(data.subjectId,data.formName)">Keys Card</button>&nbsp; &nbsp;&nbsp;-->
+    <!--&lt;!&ndash;--button type="button" class="btn btn-danger btn-xs" (click)="deleteUploadedForm(data.subjectId,data.formName)">Delete Form</button--------&ndash;&gt;-->
+
+    </ng-template>
+
+  </p-column>
+
+</p-dataTable>
+
+
+
+
+
+
+
+
+
+
+<p-dialog header="Add New Server"  [width]="300" [(visible)]="displayNew">
+  <form role="form">
+    <div class="form-group"> <input type="text" placeholder="Server Name" class="form-control" #serverName></div>
+    <div class="form-group"> <input type="text" placeholder="Server IP Address" class="form-control" #serverIPAddress></div>
+
+  </form>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" (click)="addNewServer(serverName, serverIPAddress)" label="Add"></button>
+    <button type="button" pButton icon="pi pi-close" (click)="displayNew=false" label="Cancel" class="ui-button-secondary"></button>
+  </p-footer>
+</p-dialog>
+

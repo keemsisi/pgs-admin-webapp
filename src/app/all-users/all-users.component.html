@@ -1,0 +1,57 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-md-12" style="position: sticky">
+    <h2>All Users </h2>
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/dashboard/admindashboard">Dashboard</a>
+      </li>
+      <li>
+        <a [routerLink]="['/dashboard/users']">Users</a>
+      </li>
+
+      <!--<li class="active">-->
+      <!--<strong>Downloaded Exams</strong>-->
+      <!--</li>-->
+    </ol>
+  </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight" >
+    <div class="row">
+
+
+ <p-dataTable #dt  [tableStyle]="{'table-layout':'auto'}"  [value]="allUsers" [paginator]="true" [rows]="10" >
+
+
+    <p-column header="Index" [filter]="true" filterMatchMode="contains" [sortable]="true">
+      <ng-template let-index = "rowIndex">
+        {{index}}
+      </ng-template>
+      
+    </p-column>
+    <p-column field="username" header="Username" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+    <p-column field="dateReg" header="Date Registered" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+
+  
+    <p-column field="status" header="Action" [sortable]="true" >
+        <ng-template let-index = "rowIndex"  let-data ="rowData" pTemplate="body">
+          <button type="button" class="btn btn-danger btn-xs" (click)="deleteUser(data.username)">Delete User</button> &nbsp; &nbsp;&nbsp;
+          <button type="button" class="btn btn-primary btn-xs" (click)="viewMore(data.username)">View More Details</button> &nbsp; &nbsp;&nbsp;
+        </ng-template>
+      </p-column>
+  
+  </p-dataTable>
+
+    </div>
+ </div>
+
+
+  
+  
+ 
+  
+  
+  <p-toast position="top-right"></p-toast>

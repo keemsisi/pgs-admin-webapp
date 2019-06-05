@@ -1,0 +1,186 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-md-12" style="position: sticky">
+    <h2>User View More Details - {{username}} </h2>
+    <ol class="breadcrumb">
+
+      <li>
+        <a routerLink="/dashboard/admindashboard">Dashboard</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/dashboard/users','']">Users</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/dashboard/user-view-more-details',username]">User View More Details</a>
+      </li>
+
+      <!--<li class="active">-->
+      <!--<strong>Downloaded Exams</strong>-->
+      <!--</li>-->
+    </ol>
+  </div>
+</div>
+
+
+<div class="wrapper wrapper-content">
+    <div class="row" id="table-container" >
+
+
+      
+     <p-dataTable #dt0  [tableStyle]="{'table-layout':'auto'}"  [value]="personalInformation" [paginator]="true" [rows]="30" [scrollable]="true" >
+          <p-column field="nameInFull" header="Full Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="dob" header="DOB" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="sex" header="Sex" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="maritalStatus" header="Marital Status" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="town" header="Town" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="lga" header="LGA" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="senatorialDestrict" header="Senatorial Destrict" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="contactAddressOne" header="Contact Add-1" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+     </p-dataTable>
+          
+      <p-dataTable #dt01  [tableStyle]="{'table-layout':'auto'}"  [value]="personalInformation" [paginator]="true" [rows]="30" [scrollable]="true" scrollHeight="100%" scrollWidth="100%">
+          <p-column field="contactAddressTwo" header="Contact Add-2" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="contactAddressThree" header="Contact Add-3" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="phoneNumber" header="Phonenumber" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="emailAddress" header="Email" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="presentEmployer" header="Present Employer" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="presentPost" header="Present Post" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="salary" header="Salary" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="postAppliedFor" header="Post Applied" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+
+
+
+      <h2 style="text-transform: capitalize">Education  </h2>
+      <p-dataTable #dt1  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo.eaphni.educationArray" [paginator]="true" [rows]="30">
+          <p-column field="schoolAttended" header="School Attended" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="fromDate" header="From Date" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="toDate" header="To Date" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+
+
+
+      <h2 style="text-transform: capitalize"> Academic And Professional Qaulification </h2>
+       <p-dataTable #dt2  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo['eaphni']['academicAndProfessionalQaulification']" [paginator]="true" [rows]="30">
+          <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+          <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+
+
+      <h2 style="text-transform: capitalize"> National Recognitions </h2>
+       <p-dataTable #dt3  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo['eaphni']['nationalRecognitions']" [paginator]="true" [rows]="30">
+        <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+
+ 
+
+      <h2 style="text-transform: capitalize"> International Recognitions </h2>
+       <p-dataTable #dt4  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo['eaphni']['internationalRecognitions']" [paginator]="true" [rows]="30">
+        <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+
+      <h2 style="text-transform: capitalize"> Work Experience</h2>
+        <p-dataTable #dt5  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo['masterFormGroupings']['workExperience']" [paginator]="true" [rows]="30">
+             <p-column field="organization" header="Organisation" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="postHeld" header="Post Held" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="fromDate" header="From Date" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="toDate" header="To Date" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        </p-dataTable>
+
+
+
+        <h2 style="text-transform: capitalize"> Commendation </h2>
+        <p-dataTable #dt55  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo['masterFormGroupings']['commendation']" [paginator]="true" [rows]="30">
+             <p-column field="title" header="Organisation" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="commendationFrom" header="From" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="commendationYear" header="Commendation Date " [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        </p-dataTable>
+
+
+        <h2 style="text-transform: capitalize"> Publications </h2>
+        <p-dataTable #dt7  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo['masterFormGroupings']['publications']" [paginator]="true" [rows]="30">
+             <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="publicationYear" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="publisher" header="Publisher " [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        </p-dataTable>
+
+
+        <h2 style="text-transform: capitalize"> Refrees </h2>
+        <p-dataTable #dt8  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo.masterFormGroupings.refrees" [paginator]="true" [rows]="30">
+             <p-column field="refreeFullName" header="Refree Full Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="occupation" header="Occupation" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="phoneNumber" header="Phone Number " [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="address" header="Address" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        </p-dataTable>
+
+        <h2 style="text-transform: capitalize"> Membership Of Professional Bodies </h2>
+        <p-dataTable #dt9  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo.masterFormGroupings.membershipOfProfessionalBodies" [paginator]="true" [rows]="30">
+             <p-column field="organizationName" header="Organisation Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="yearJoined" header="Year Joined" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="postHeld" header="Post Held" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        </p-dataTable>
+
+
+
+        <h2 style="text-transform: capitalize"> Special Assignments </h2>
+        <p-dataTable #dt10  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo.masterFormGroupings.specialAssignment" [paginator]="true" [rows]="30">
+             <p-column field="assignment" header="Assignment" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="description" header="Organisation" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="year" header="Commendation Date " [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        </p-dataTable>
+
+
+
+        <h2 style="text-transform: capitalize"> Extra Curricula Activities</h2>
+        <p-dataTable #dt11  [tableStyle]="{'table-layout':'auto'}"  [value]="userInfo.masterFormGroupings.extraCurriculaActivities" [paginator]="true" [rows]="30">
+             <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="description" header="Description" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="fromDate" header="From Date " [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="toDate" header="To Date" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        </p-dataTable>
+
+
+<!-----------------"_id": "5ce2ef8f54f2d15262e5a4ab",
+        "owner": "Adeshina",
+        "fileId": "5ce2ef8d54f2d15262e5a4a9",
+        "collectionName": "educational-certificates",
+        "fileName": "HospitalManagementSystem.postman_collection.json"-->
+
+        <h2 style="text-transform: capitalize ; color: rgb(0, 110, 255); margin-top:4%">Files Uploaded </h2>
+        <p-dataTable #dt11  [tableStyle]="{'table-layout':'auto'}"  [value]="files" [paginator]="true" [rows]="30">
+             <p-column field="owner" header="Owned By" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="fileName" header="File Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="collectionName" header="Upload To" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             
+             <p-column field="fileId" header="Action" [sortable]="true" >
+              <ng-template let-index = "rowIndex"  let-data ="rowData" pTemplate="body">
+                
+                <button class="btn btn-success" type="button" (click)="downloadFile(data.fileId, data.collectionName , data.fileName)">
+                  <i class="fa fa-download"></i>&nbsp;
+                  <span class="bold">Download</span>
+                </button> &nbsp; 
+
+                <!-- <button class="btn btn-danger" type="button" (click)="deleteFile(data.fileId, data.collectionName , data.fileName)">
+                        <i class="fa fa-remove"></i>&nbsp;
+                        <span class="bold">Delete</span>
+                </button> &nbsp; &nbsp; -->
+
+              </ng-template>
+            </p-column>
+
+        </p-dataTable>
+
+
+       
+
+    </div>
+ </div>
+  
+  <p-toast position="top-right"></p-toast>
+

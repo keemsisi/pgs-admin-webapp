@@ -1,0 +1,80 @@
+<div id="wrapper">
+
+  <nav class="navbar-default navbar-static-side" role="navigation" >
+    <div class="sidebar-collapse" style="height: 100vh;background-color: #1a2d41">
+      <ul class="nav metismenu" id="side-menu">
+        <li class="nav-header">
+          <div class="dropdown profile-element">
+            <span class="text-muted text-xs block">Promotional Gradding System<br/><br/></span>
+          </div>
+          <div class="logo-element">
+            <!--{{admin_username}}-->
+          </div>
+        </li>
+
+
+        <!---------------li>
+          <a routerLink="/dashboard/admindashboard"><i class="fa fa-cog"></i> <span class="nav-label">Dashboard</span></a>
+        </li--------------------------------->
+
+        <li>
+          <a routerLink="/dashboard/admindashboard"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboard</span></a>
+        </li>
+
+        <li>
+          <a routerLink="/dashboard/users"><i class="fa fa-archive"></i> <span class="nav-label">All Users</span></a>
+        </li>
+
+
+        <li>
+          <a routerLink="/dashboard/admins"><i class="fa fa-file"></i> <span class="nav-label">All Administrators</span></a>
+        </li>
+
+
+
+        <li class="active">
+          <a routerLink="/dashboard/metrics"><i class="fa fa-pie-chart"></i> <span class="nav-label">Metrics</span>  </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+  <div id="page-wrapper" class="gray-bg">
+    <div class="row border-bottom">
+      <nav class="navbar navbar-static-top " role="navigation" style="margin-bottom: 0">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="navbar-header">
+              <!-- <a class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i> </a>-->
+              <!--<form role="search" class="navbar-form-custom" action="search_results.html">-->
+              <!--<div class="form-group">-->
+              <!--<input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">-->
+              <!--</div>-->
+              <!--</form>-->
+            </div>
+          </div>
+
+          <ul class="nav navbar-top-links navbar-right">
+            <li>
+              <a (click)="logout()">
+                <i class="fa fa-sign-out"></i> Log out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <router-outlet></router-outlet>
+
+    <div class="footer">
+
+      <div>
+        <strong>Copyright</strong> Computer Science Department SIWES Project &copy; 2019
+      </div>
+    </div>
+
+  </div>
+</div>

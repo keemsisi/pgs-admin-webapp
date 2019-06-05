@@ -1,0 +1,265 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-md-12">
+    <h2>Dashboard View </h2>
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/dashboard/admindashboard">Dashboard</a>
+      </li>
+      <!-- <li>
+        <a [routerLink]="['/dashboard/exams/view-more','exam-name']">Exams</a>
+      </li> -->
+
+      <!--<li class="active">-->
+      <!--<strong>Downloaded Exams</strong>-->
+      <!--</li>-->
+    </ol>
+  </div>
+</div>
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight ">
+  <div class="row">
+
+
+      <div class="col-lg-6">
+          <div class="widget navy-bg no-padding">
+              <div class="p-m">
+                  <h1 class="m-xs">{{totalUsers}}</h1>
+
+                  <h3 class="font-bold no-margins">
+                      Total Registered Users
+                  </h3>
+                  <small>The Registered users</small>
+              </div>
+              <div class="flot-chart">
+                  <div class="flot-chart-content" id="flot-chart1" style="padding: 0px; position: relative;">
+                    <canvas class="flot-base" width="686" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 686px; height: 100px;"></canvas>
+                    <canvas class="flot-overlay" width="686" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 686px; height: 100px;"></canvas>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="col-lg-6">
+          <div class="widget navy-bg no-padding">
+              <div class="p-m">
+                  <h1 class="m-xs">{{totalAdmins}}</h1>
+
+                  <h3 class="font-bold no-margins">
+                      Total Administrators
+                  </h3>
+                  <small>Available</small>
+              </div>
+              <div class="flot-chart">
+                  <div class="flot-chart-content" id="flot-chart1" style="padding: 0px; position: relative;">
+                    <canvas class="flot-base" width="686" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 686px; height: 100px;"></canvas>
+                    <canvas class="flot-overlay" width="686" height="100" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 686px; height: 100px;"></canvas>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+    <a routerLink="/dashboard/exams/view-total-rescheduled-candidates">
+      <div class="col-md-3  ">
+        <div class="widget style1 yellow-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-users fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span> Publication </span>
+              <h2 class="font-bold">{{totalPublicationsFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+
+    <a routerLink="/dashboard/exams/view-total-absent-candidates">
+      <div class="col-md-3  ">
+
+        <div class="widget style1 yellow-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-user fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span> Commendation</span>
+              <h2 class="font-bold">{{totalCommendationFiles}}</h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </a>
+
+
+
+    <a routerLink="/dashboard/exams/view-total-total-1-subject">
+      <div class="col-md-3  ">
+        <div class="widget style1 yellow-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-user fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span> Prizes  </span>
+              <h2 class="font-bold">{{totalPrizesFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+    <a routerLink="/dashboard/exams/view-total-total-1-subject">
+      <div class="col-md-3  ">
+        <div class="widget style1 yellow-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-user fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span> Award </span>
+              <h2 class="font-bold">{{totalAwardsFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+    <a routerLink="/dashboard/exams/view-total-total-1-subject">
+      <div class="col-md-3  ">
+        <div class="widget style1 ultra-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-user fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span> Extra Curricula Act.</span>
+              <h2 class="font-bold">{{totalExtraCurriculaActivitiesFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+
+
+
+    <a routerLink="/dashboard/exams/view-total-total-1-subject">
+      <div class="col-md-3  ">
+        <div class="widget style1 ultra-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-user fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span> Educational </span>
+              <h2 class="font-bold">{{totalEdcationalCertFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+    <a routerLink="/dashboard/exams/view-total-total-1-subject">
+      <div class="col-md-3  ">
+        <div class="widget style1 ultra-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-user fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span>Inter. Recognitions</span>
+              <h2 class="font-bold">{{totalInternationalRecognitionsFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+
+
+
+    <a routerLink="/dashboard/exams/view-total-cancelled-centers">
+      <div class="col-md-3">
+        <div class="widget style1 ultra-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-users fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span> Special Assignments </span>
+              <h2 class="font-bold">{{totalSpecialAssignmentFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+
+    <a routerLink="/dashboard/exams/view-total-cancelled-centers">
+      <div class="col-md-3">
+        <div class="widget style1 blue-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-users fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span> Honours </span>
+              <h2 class="font-bold">{{totalHonoursFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+
+    <a routerLink="/dashboard/exams/view-total-cancelled-centers">
+      <div class="col-md-3">
+        <div class="widget style1 blue-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-users fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span>Nat. & Pro. Qual.  </span>
+              <h2 class="font-bold">{{totalNationalAndProfessionalQualificationsFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+
+    <a routerLink="/dashboard/exams/view-total-cancelled-centers">
+      <div class="col-md-3">
+        <div class="widget style1 blue-skin">
+          <div class="row">
+            <div class="col-xs-4">
+              <i class="fa fa-users fa-5x" style="color: white;"></i>
+            </div>
+            <div class="col-xs-8 text-right" style="color: white;">
+              <span>National Recog.</span>
+              <h2 class="font-bold">{{totalNationalRecognitionsFiles}}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+

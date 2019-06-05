@@ -1,0 +1,157 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-md-12" style="position: sticky">
+    <h2>Admins </h2>
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/dashboard/admindashboard">Dashboard</a>
+      </li>
+      <li>
+        <a [routerLink]="['/dashboard/admins','']">Admins</a>
+      </li>
+
+      <!--<li class="active">-->
+      <!--<strong>Downloaded Exams</strong>-->
+      <!--</li>-->
+    </ol>
+  </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight ">
+    <div class="row">
+
+        <div class="ibox">
+            <div class="ibox-content">
+
+                    <div class="row wrapper border-bottom white-bg page-heading">
+                        <form [formGroup]="newAdminForm" style="margin-bottom: 4%">
+                            <h3 class="first">Add New Administrator</h3>
+                             
+                  
+                            <div class="ui-g ui-fluid">
+                  
+                  
+                                <div class="ui-g-12 ui-md-4">
+                                    <div class="ui-inputgroup">
+                                        <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                                        <input type="text" matInput placeholder="Username" formControlName="username">  
+
+                                        <ng-container *ngIf="adminExist; else elseTemplate">
+                                                <p style="color: red ;">
+                                                        Admin already exists!
+                                                </p>
+                                        </ng-container>
+                                        <ng-template #elseTemplate>
+                                            <p style="color: rgb(7, 202, 7) ;">
+                                               Username is available!
+                                            </p>
+                                        </ng-template>
+                                    </div>
+                                    
+                                 </div>
+                  
+                                <div class="ui-g-12 ui-md-4">
+                                  <div class="ui-inputgroup">
+                                      <span class="ui-inputgroup-addon"><i class="fa fa-lock"></i></span>
+                                      <input type="password" matInput placeholder="Password" formControlName="password">         
+                                  </div>
+                                 </div>
+                                        
+                                <div class="ui-g-12 ui-md-4">
+                                  <div class="ui-inputgroup">
+                                      <span class="ui-inputgroup-addon"><i class="fa fa-archive"></i></span>
+                                      <input type="text" matInput placeholder="Admin Role" formControlName="role">         
+                                  </div>
+                                </div>
+                  
+                                
+                            </div>
+                    
+                            <button type="button" class="btn btn-primary btn-xs" (click)="createNewAdmin()" [disabled] = "adminExist" >Create New Administrator</button> &nbsp; &nbsp;&nbsp;
+                    
+                        </form>
+                    </div>
+            </div>
+        </div>
+
+      
+        
+
+        
+
+
+        <div class="ibox">
+            <div class="ibox-content">
+
+                    <div class="row wrapper border-bottom white-bg page-heading">
+                        <p-dataTable #dt  [tableStyle]="{'table-layout':'auto'}"  [value]="allAdmins" [paginator]="true" [rows]="10">
+                            <p-column field="username" header="Username" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+                            <p-column field="role" header="Administrator Role" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+                            
+                            <p-column field="status" header="Action" [sortable]="true" >
+                              <ng-template let-index = "rowIndex"  let-data ="rowData" pTemplate="body">
+                                <button type="button" class="btn btn-danger btn-xs" (click)="showDeleteModal(data.username)">Delete Admin</button> &nbsp; &nbsp;&nbsp;
+                              </ng-template>
+                            </p-column>
+                          </p-dataTable>
+                    </div>
+            </div>
+        </div>
+
+
+
+        <ng-container *ngIf="showAdminDeleteDiag; else elseTemplate">
+            <div class="modal inmodal in" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" 
+            [ngStyle]="{ 'display' : 'block' , 'padding-right' : '15px' }">
+    
+               <div class="modal-dialog">
+                    <div class="modal-content animated bounceInRight">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" (click)="closeModal()">×</span><span class="sr-only">Close</span></button>
+                            <i class="fa fa-trash modal-icon" style="color: red"></i>
+                            <h4 class="modal-title" style="color: red"> Delete {{adminToBeDeleted}}</h4>
+                            <small class="font-bold"> Confirm dialog to delete Administrator </small>
+                        </div>
+                        <div class="modal-body">
+                            <!-- <p>
+                                <strong> Please click on the confirm button below to <strong> {{adminToBeDeleted}} </strong>  </strong> 
+                            </p> -->
+                                <div class="form-group"><label>Type in the username to be deleted 
+                                    " <span style="color: red">{{adminToBeDeleted}}</span> " </label> 
+                                    <input type="text" placeholder="Confirm the username here..." class="form-control"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal" (click)="closeModal()">Close</button>
+                            <button type="button" class="btn btn-danger" style="color:white" (click)="deleteAdmin()">
+                                <i class="fa fa-trash"></i>
+                                Confirm Delete
+                            </button>
+                        </div>
+                    </div>
+               </div>
+            </div>
+     </ng-container>
+     <ng-template #elseTemplate>
+     </ng-template>
+
+
+      
+    </div>
+ </div>
+  
+  
+ 
+
+
+ 
+
+
+ <!---------------------------------------------------Delete Modal Confirmation Pop Up ------------------------------------------------->
+
+
+
+  
+  
+  <p-toast position="top-right"></p-toast>
